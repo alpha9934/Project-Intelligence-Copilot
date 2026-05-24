@@ -12,7 +12,7 @@
 
 ## 📸 System Showcase
 
-*(Add your screenshots to a `docs/` folder and they will appear here!)*
+
 
 ### 1. The Control Tower (Streamlit Frontend)
 > Displays multi-hop reasoning, calculated risk scores, and explicit evidence citations.
