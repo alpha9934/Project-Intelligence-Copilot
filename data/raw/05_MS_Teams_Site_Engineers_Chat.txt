@@ -1,0 +1,19 @@
+﻿MS TEAMS CHAT EXPORT
+Channel: #project-alpha-site-ops
+Date: May 5, 2026
+
+
+[09:14 AM] Rahul Verma (Site Engineer):
+Hey guys, the new batch of structural steel arrived from Global Steel Suppliers this morning. Unloading it now at Sector 4.
+
+
+[09:17 AM] Amit Patel (QA/QC Lead):
+Noted. I'll be down on May 12th for the formal inspection. Did they send the Fe500D?
+
+
+[09:22 AM] Rahul Verma (Site Engineer):
+The delivery slip says Fe415. The rebar ribs look a bit different than the last batch too. I thought we were strictly using 500D for the load-bearing pillars?
+
+
+[09:25 AM] Amit Patel (QA/QC Lead):
+Wait, what? The contract strictly mandates Fe500D. Don't pour any concrete. I'm going to pull the vendor emails and run a tensile strength test when I'm on site next week. Leave the batch isolated.

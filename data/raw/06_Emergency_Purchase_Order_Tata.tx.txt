@@ -1,0 +1,21 @@
+﻿PURCHASE ORDER: EMERGENCY SOURCING
+PO Number: #EMG-9945
+Date: May 16, 2026
+To: Tata Construction Materials Ltd.
+From: Priya (Procurement Lead, L&T Metro Project Alpha)
+
+
+ITEM DESCRIPTION:
+- Material: IS 1786:2008 Grade Fe500D Structural Steel
+- Quantity: 2,400 Tons
+- Purpose: Phase 1 Pillar Construction (Replacement for rejected Global Steel batch)
+
+
+FINANCIALS:
+- Base Rate: Rs. 65,000 per Ton
+- Emergency Expedite Premium: 15% (Rs. 9,750 per Ton)
+- Total Cost: Rs. 179,400,000
+
+
+NOTES: 
+Delivery required within 72 hours to minimize the existing 3-week concrete pouring delay. Expedite premium costs will be offset by the 2% penalty levied against the previous vendor (Global Steel Suppliers).

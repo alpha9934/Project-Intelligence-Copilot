@@ -1,0 +1,36 @@
+# ==========================================
+# L&T Project Intelligence Copilot - .gitignore
+# ==========================================
+
+# --- Secrets & Configurations ---
+.env
+.env.*
+!.env.example
+
+# --- Virtual Environments (uv & standard) ---
+.venv/
+venv/
+env/
+
+# --- Python Artifacts ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Data & Logs ---
+*.log
+# Note: We are NOT ignoring the `data/` folder here because your 
+# synthetic PDFs are meant to be pushed to GitHub to prove your POC works.
+# However, if using real/massive datasets, you would uncomment the line below:
+# data/raw/
+
+# --- Vector Database Local Cache (if any) ---
+.chroma/
+*.sqlite3
+
+# --- OS & IDE Settings ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

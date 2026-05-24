@@ -1,0 +1,52 @@
+=======================================================================================
+                   L&T PROJECT INTELLIGENCE COPILOT - ARCHITECTURE
+=======================================================================================
+
+[ 1. CLIENT & API LAYER ]
+      +------------------------+
+      |  Customer Dashboard /  |  <-- (React / Next.js UI)
+      |  Project Control Tower |
+      +-----------+------------+
+                  |  JSON POST /ask
+                  v
+      +------------------------+
+      |    FastAPI Backend     |  <-- (Entry point, Auth, Rate Limiting)
+      |    (uvicorn server)    |
+      +-----------+------------+
+                  |
+==================|====================================================================
+                  v
+[ 2. ORCHESTRATION & REASONING LAYER (LangChain / src/rag_service.py) ]
+
+      +------------------------+       +------------------------------------+
+      |  Query Understanding   | ----> |  Pydantic Guardrails (Validation)  |
+      +-----------+------------+       +------------------------------------+
+                  |                                     ^
+                  v                                     | (Enforces JSON Schema)
+      +------------------------+       +----------------+-------------------+
+      |   Vector Retriever     |       |       LLM Reasoning Engine         |
+      |   (Similarity Search)  | ====> |   (gpt-3.5-turbo / gpt-4o)         |
+      +-----------+------------+       +------------------------------------+
+                  | Fetch Top K chunks                  ^
+==================|=====================================|==============================
+                  v                                     |
+[ 3. DATA & MEMORY LAYER (src/ingestion.py & Pinecone) ]|
+                                                        |
+      +------------------------+                        |
+      |   Vector Database      | -----------------------+ (Provides Context & Metadata)
+      |  (Pinecone Serverless) |
+      +-----------+------------+
+                  ^
+                  | (Upserts embedded chunks)
+      +------------------------+
+      |    Embedding Model     |  <-- (text-embedding-3-small)
+      +-----------+------------+
+                  ^
+                  | (Passes 500-word chunks)
+      +------------------------+
+      | Data Engineering Pipeline| <-- (PyPDFLoader, TextSplitter, PySpark/Databricks)
+      |  (Extraction & Chunking) |
+      +-----------+------------+
+                  ^
+                  |
+      [ Raw L&T Project Documents (Contracts, BOQs, MOMs, Safety Reports) ]

@@ -1,0 +1,19 @@
+﻿MINUTES OF MEETING: Weekly Project Review
+PROJECT: L&T Metro Project Alpha
+DATE: May 15, 2026
+CHAIR: Suresh (Project Manager)
+
+
+ATTENDEES: Suresh (PM), Amit Patel (QA/QC), Priya (Procurement)
+
+
+AGENDA 1: Phase 1 Construction Delay
+- Amit Patel reported that the Phase 1 pillar construction is completely halted due to the wrong steel delivery (Fe415 instead of Fe500D).
+- Impact: This halts all dependent workflows. The Phase 1 concrete pouring schedule is now delayed by a minimum of 3 weeks.
+- Root Cause: Global Steel Suppliers made an unauthorized substitution, as noted in their May 2 email.
+
+
+ACTION ITEMS:
+1. Priya (Procurement) to immediately source Fe500D steel from an emergency backup vendor.
+2. Suresh (PM) is escalating this issue to the L&T Legal team today.
+3. Legal to initiate the 2% financial penalty against Global Steel Suppliers as per Section 9.1 of the contract for causing this 3-week delay.
