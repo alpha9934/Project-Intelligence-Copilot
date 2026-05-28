@@ -12,81 +12,84 @@
 
 ## 📸 System Showcase
 
+### 🎥 MVP System Demonstration
+The interactive player below demonstrates the end-to-end telemetry and multi-hop reasoning capabilities of the Copilot engine processing real-time project queries:
 
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/623d1ff1-ce36-4444-b2a3-b9d31711ad63" width="100%" autoplay muted loop controls>
+    Your browser does not support the video tag.
+  </video>
+</p>
 
-https://github.com/user-attachments/assets/623d1ff1-ce36-4444-b2a3-b9d31711ad63
-
-
-
-
-### 1. The Control Tower (Streamlit Frontend)
-> Displays multi-hop reasoning, calculated risk scores, and explicit evidence citations.
+### 1. The Control Tower Interface (Streamlit Frontend)
+> Renders complex multi-hop reasoning chains, programmatic risk matrix scores, and explicit context/evidence citations mapped back to foundational documentation.
 ![Frontend Dashboard](docs/frontend_output.png)
 
-### 2. Vector Memory (Pinecone Serverless)
-> 1536-dimensional semantic chunks successfully embedded and indexed.
+### 2. High-Dimensional Vector Space (Pinecone Serverless)
+> Operational view of the 1536-dimensional dense vector space. Chunks are generated via optimized recursive text-splitting configurations and indexed seamlessly for sub-second similarity lookups.
 ![Pinecone Database](docs/pinecone_db.png)
 
-### 3. CI/CD & Guardrails (Pytest Integration)
-> Pydantic schema validation ensuring strict JSON outputs and zero LLM hallucinations.
+### 3. Deterministic Guardrails & CI/CD (Pytest Integration)
+> Robust validation pipeline enforcing rigid Pydantic schemas. This configuration guarantees predictable JSON payloads, strictly bounded structural integrity, and structural immunity against LLM hallucinations.
 ![Test Cases](docs/test_cases.png)
 
 ---
 
 ## 🧠 System Architecture
 
-The architecture relies on a strict separation of concerns, decoupling the frontend UI from the AI reasoning engine and the vector data pipeline.
+The core runtime decouples the presentation layer from the asynchronous data ingestion pipeline and the core AI orchestration framework, ensuring modular scalability and low-latency execution boundaries.
 
 ```text
 =======================================================================================
                    L&T PROJECT INTELLIGENCE COPILOT - ARCHITECTURE
 =======================================================================================
 
-[ 1. CLIENT & API LAYER ]
+[ 1. CLIENT & API SERVICE LAYER ]
       +------------------------+
-      |  Customer Dashboard /  |  <-- (Streamlit UI)
+      |  Customer Dashboard /  |  <-- (Streamlit UI Presentation Layer)
       |  Project Control Tower |
       +-----------+------------+
-                  |  JSON POST /ask
+                  | Asynchronous JSON POST /ask
                   v
       +------------------------+
-      |    FastAPI Backend     |  <-- (Entry point, Auth, Rate Limiting)
-      |    (uvicorn server)    |
+      |   FastAPI Backend      |  <-- (Uvicorn Gateway, Input Sanitization, Rate Limiting)
+      |   (REST API Routing)   |
       +-----------+------------+
                   |
 ==================|====================================================================
                   v
-[ 2. ORCHESTRATION & REASONING LAYER (LangChain LCEL) ]
+[ 2. ORCHESTRATION & AGENTIC REASONING LAYER (LangChain LCEL) ]
 
       +------------------------+       +------------------------------------+
-      |  Query Understanding   | ----> |  Pydantic Guardrails (Validation)  |
+      |  Query Deconstruction  | ----> |  Pydantic Schema Guardrails        |
+      |   & Intent Parsing     |       |  (Output Determinism Validation)   |
       +-----------+------------+       +------------------------------------+
                   |                                     ^
-                  v                                     | (Enforces JSON Schema)
+                  v                                     | (Enforces Strict JSON Contracts)
       +------------------------+       +----------------+-------------------+
-      |   Vector Retriever     |       |       LLM Reasoning Engine         |
-      |   (Similarity Search)  | ====> |     (OpenAI gpt-3.5-turbo)         |
+      |  Dense Vector Retriever|       |  Autonomous LLM Reasoning Engine   |
+      |   (Cosine Similarity)  | ====> |  (Stateful OpenAI Orchestration)   |
       +-----------+------------+       +------------------------------------+
-                  | Fetch Top K chunks                  ^
+                  | Query Top-K Chunks                  ^
 ==================|=====================================|==============================
                   v                                     |
-[ 3. DATA & MEMORY LAYER (Ingestion Pipeline) ]         |
+[ 3. ASYNCHRONOUS DATA PIPELINE & MEMORY LAYER ]        |
                                                         |
       +------------------------+                        |
-      |   Vector Database      | -----------------------+ (Provides Context & Metadata)
-      |  (Pinecone Serverless) |
+      |  Vector Database       | -----------------------+ (Provides Verified Context 
+      |  (Pinecone Serverless) |                           & Metadata Payload)
       +-----------+------------+
                   ^
-                  | (Upserts embedded chunks)
+                  | (High-Throughput Vector Upserts)
       +------------------------+
-      |    Embedding Model     |  <-- (OpenAI text-embedding-3-small)
+      |  Embedding Generation  |  <-- (OpenAI text-embedding-3-small | 1536 Dimensions)
       +-----------+------------+
                   ^
-                  | (Passes semantic chunks)
+                  | (Downstream Semantic Tokens)
       +------------------------+
-      | Data Engineering Pipeline| <-- (PyPDFLoader, TextSplitter)
-      |  (Extraction & Chunking) |
+      | Document Preprocessing |  <-- (PyPDFLoader, RecursiveCharacterTextSplitter)
+      |  & Ingestion Pipeline  |
       +-----------+------------+
                   ^
-                  |
+                  | (Source Artifacts Stream)
       [ Raw L&T Project Documents (Contracts, BOQs, MOMs, Safety Reports) ]
