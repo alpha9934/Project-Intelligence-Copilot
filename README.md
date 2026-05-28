@@ -14,6 +14,11 @@
 
 
 
+https://github.com/user-attachments/assets/623d1ff1-ce36-4444-b2a3-b9d31711ad63
+
+
+
+
 ### 1. The Control Tower (Streamlit Frontend)
 > Displays multi-hop reasoning, calculated risk scores, and explicit evidence citations.
 ![Frontend Dashboard](docs/frontend_output.png)
